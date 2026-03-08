@@ -1,0 +1,22 @@
+.slider-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-container {
+  width: 80%;
+  /* حجم الكونتينر اللي عايز تعرضه */
+  margin: 0 auto;
+}
+
+.carousel-img {
+  width: 100%;
+  height: auto;
+  /* للحفاظ على نسبة الصورة */
+  object-fit: cover;
+  /* لتغطية كامل مساحة الصورة بدون تشويه */
+  border-radius: 10px;
+  /* لو عايز شكل اجمل */
+}

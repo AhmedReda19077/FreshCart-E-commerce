@@ -1,0 +1,26 @@
+<div class="title-container">
+
+  <h2 class="super-title">
+    Categories
+    <span class="spark s1"></span>
+    <span class="spark s2"></span>
+    <span class="spark s3"></span>
+  </h2>
+
+</div>
+
+
+<owl-carousel-o [options]="customOptions">
+
+  @for (cat of categories; track cat._id) {
+  <ng-template carouselSlide>
+
+    <div class="w-full h-40 flex items-center justify-center overflow-hidden">
+      <img [src]="cat.image" [title]="cat.name" class="w-full h-full object-contain">
+    </div>
+    <h3 class="text-center text-green-600">{{cat.name}}</h3>
+
+  </ng-template>
+  }
+
+</owl-carousel-o>
