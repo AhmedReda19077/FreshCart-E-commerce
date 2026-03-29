@@ -22,7 +22,7 @@
           class="cursor-pointer block py-2 px-3 text-heading rounded hover:bg-green-100 hover:text-green-600 md:hover:bg-transparent md:border-0 md:hover:text-green-600 md:p-0">
           Logout
         </a> -->
-        @if (!isLogin()) {
+        @if (isLogin() == false) {
         <a routerLink="/register" class="block px-4 py-2 text-sm font-medium text-green-600
          border border-green-600 rounded-lg
          hover:bg-green-600 hover:text-white
@@ -38,7 +38,7 @@
         </a>
         }
 
-        @if (isLogin()) {
+        @if (isLogin() == true) {
         <a (click)="logout()" class="cursor-pointer block px-4 py-2 text-sm font-medium text-red-600
          border border-red-600 rounded-lg
          hover:bg-red-600 hover:text-white

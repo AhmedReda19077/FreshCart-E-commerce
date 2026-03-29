@@ -6,15 +6,14 @@ import { environment } from '../../../../environments/environment.development';
 @Injectable({
   providedIn: 'root',
 })
-export class CategoryService {
+export class BrandsService {
   private httpClient: HttpClient = inject(HttpClient);
 
-  getCategory(): Observable<any> {
-    return this.httpClient.get(`${environment.baseUrl}categories`);
+  getAllBrands(): Observable<any> {
+    return this.httpClient.get(`${environment.baseUrl}brands`);
   }
 
-  getSpecCategory(cId: string): Observable<any> {
-    return this.httpClient.get(`${environment.baseUrl}categories/${cId}`)
+  getSpecBrand(bId: string): Observable<any> {
+    return this.httpClient.get(`${environment.baseUrl}brands/${bId}`)
   }
 }
-

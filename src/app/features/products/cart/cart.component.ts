@@ -1,6 +1,6 @@
 import { Cart } from '../../../core/interfaces/cart';
 import { CartService } from './../../../core/services/cart/cart.service';
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, signal, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import Swal from 'sweetalert2';
@@ -12,9 +12,10 @@ import Swal from 'sweetalert2';
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.scss',
 })
-export class CartComponent {
+export class CartComponent implements OnInit {
   allCartProdycts = signal<Cart[]>([]);
-  totalPrice = signal<any[]>([]);
+  totalPrice = signal<number>(0);
+  cartId = signal<string>("");
 
   private cartService: CartService = inject(CartService);
   private toastrService: ToastrService = inject(ToastrService);
@@ -28,7 +29,8 @@ export class CartComponent {
     this.cartService.getAllCart().subscribe({
       next: (res) => {
         this.allCartProdycts.set(res.data.products);
-        this.totalPrice.set(res.data.totalCartPrice)
+        this.totalPrice.set(res.data.totalCartPrice);
+        this.cartId.set(res.cartId)
         // console.log(res)
       },
       error: (err) => {
@@ -104,4 +106,7 @@ export class CartComponent {
     });
   }
 
+  requestOrder() {
+    this.router.navigate(["/order" , this.cartId()])
+  }
 }

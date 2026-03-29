@@ -1,0 +1,11 @@
+{
+  "home" : "Home",
+  "cart" : "Cart",
+  "brand" : "Brand",
+  "categories" : "Categories",
+  "product" : "Product",
+  "logout" : "Logout",
+  "login" : "Login",
+  "register" : "Register",
+  "popular products" : "Popular Products"
+}

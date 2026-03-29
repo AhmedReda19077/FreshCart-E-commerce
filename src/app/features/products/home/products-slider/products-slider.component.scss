@@ -11,14 +11,13 @@
   display: inline-block;
   font-size: 40px;
   font-weight: 900;
-
   padding: 12px 30px;
-
   cursor: pointer;
 
-  transition:
-    transform .9s cubic-bezier(.17, .67, .3, 1.33),
-    filter .9s ease;
+  transform:
+    rotateX(6deg) rotateY(-6deg) scale(1.08);
+
+  filter: brightness(1.15);
 
   background: linear-gradient(90deg,
       #16a34a,
@@ -30,40 +29,19 @@
   background-size: 300%;
 
   color: transparent;
-
   -webkit-background-clip: text;
   background-clip: text;
 
-  animation: idleFloat 6s ease-in-out infinite;
-}
-
-/* حركة خفيفة */
-
-@keyframes idleFloat {
-
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(-4px);
-  }
-
+  animation: textMove 4s linear infinite;
 }
 
 /* border */
 
 .super-title::before {
-
   content: "";
-
   position: absolute;
-
   inset: -5px;
-
   border-radius: 14px;
-
   padding: 3px;
 
   background: linear-gradient(90deg,
@@ -81,68 +59,27 @@
 
   mask-composite: exclude;
 
-  opacity: 0;
-
-  transition: opacity .5s ease;
+  opacity: 1;
+  animation: borderMove 5s linear infinite;
 }
 
 /* glow */
 
 .super-title::after {
-
   content: "";
-
   position: absolute;
-
   inset: -12px;
-
   border-radius: 20px;
-
-  // background:linear-gradient(
-  //   90deg,
-  //   #22c55e,
-  //   #4ade80,
-  //   #22c55e
-  // );
 
   filter: blur(22px);
 
-  opacity: 0;
-
-  transition: opacity .8s ease;
-}
-
-/* hover */
-
-.super-title:hover {
-  transform:
-    rotateX(6deg) rotateY(-6deg) scale(1.08);
-
-  animation: textMove 4s linear infinite;
-
-  filter: brightness(1.15);
-}
-
-.super-title:hover::before {
-
-  opacity: 1;
-
-  animation: borderMove 5s linear infinite;
-
-}
-
-.super-title:hover::after {
-
   opacity: .9;
-
   animation: borderMove 5s linear infinite;
-
 }
 
 /* gradient animation */
 
 @keyframes textMove {
-
   0% {
     background-position: 0%;
   }
@@ -150,13 +87,11 @@
   100% {
     background-position: 300%;
   }
-
 }
 
 /* border animation */
 
 @keyframes borderMove {
-
   0% {
     background-position: 0%;
   }
@@ -164,25 +99,19 @@
   100% {
     background-position: 400%;
   }
-
 }
 
 /* sparkles */
 
 .spark {
-
   position: absolute;
-
   width: 6px;
   height: 6px;
-
   background: #4ade80;
-
   border-radius: 50%;
-
-  opacity: 0;
-
+  opacity: 1;
   filter: blur(1px);
+  animation: sparkMove 5s ease infinite;
 }
 
 /* positions */
@@ -202,20 +131,9 @@
   right: -12px;
 }
 
-/* sparkle hover */
-
-.super-title:hover .spark {
-
-  animation: sparkMove 5s ease infinite;
-
-  opacity: 1;
-
-}
-
 /* sparkle animation */
 
 @keyframes sparkMove {
-
   0% {
     transform: scale(.5) translateY(0);
     opacity: .3;
@@ -230,5 +148,4 @@
     transform: scale(.5) translateY(0);
     opacity: .3;
   }
-
 }

@@ -1,3 +1,5 @@
+import { ToastrService } from 'ngx-toastr';
+import { CartService } from './../../../core/services/cart/cart.service';
 import { ProductService } from './../../../core/services/product/product.service';
 import { Component, inject, signal } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -12,6 +14,9 @@ import { Product } from '../../../core/interfaces/product';
 export class ProductDetailsComponent {
   private activatedRoute: ActivatedRoute = inject(ActivatedRoute);
   private productService: ProductService = inject(ProductService);
+  private cartService: CartService = inject(CartService);
+  private toastrService: ToastrService = inject(ToastrService);
+
   pId: string | null = "";
 
   product = signal<Product>({} as Product);
@@ -30,6 +35,19 @@ export class ProductDetailsComponent {
             console.log(err)
           }
         })
+      }
+    })
+  }
+
+  addCart(pId: string) {
+    // console.log(pId);
+    this.cartService.addToCart(pId).subscribe({
+      next: (res) => {
+        this.toastrService.success(res.message, "Cart Operations!", {
+          closeButton: true,
+          progressBar: true,
+          timeOut: 3000
+        });
       }
     })
   }
