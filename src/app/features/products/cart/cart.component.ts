@@ -31,7 +31,7 @@ export class CartComponent implements OnInit {
         this.allCartProdycts.set(res.data.products);
         this.totalPrice.set(res.data.totalCartPrice);
         this.cartId.set(res.cartId)
-        // console.log(res)
+        console.log(res)
       },
       error: (err) => {
         console.log(err)

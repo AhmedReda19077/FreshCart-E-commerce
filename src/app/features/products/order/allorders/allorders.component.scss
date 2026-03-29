@@ -1,0 +1,89 @@
+
+.success-box {
+  width: 500px;
+  margin: 20px auto 40px;
+  padding: 30px;
+  text-align: center;
+  animation: fadeInUp 0.6s ease;
+  border-radius: 16px;
+  background: #ffffff;
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.08),
+    0 0 25px rgba(34, 197, 94, 0.2);
+
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* subtle glow border */
+.success-box::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  padding: 2px;
+
+  background: linear-gradient(120deg,
+      #22c55e,
+      #4ade80,
+      #16a34a);
+
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+
+  mask-composite: exclude;
+}
+
+/* check icon */
+.check-icon {
+  font-size: 50px;
+  color: #22c55e;
+  margin-bottom: 15px;
+
+  animation: pop 0.5s ease;
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0);
+  }
+
+  80% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* text */
+.success-title {
+  font-size: 26px;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.success-desc {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.success-sub {
+  font-size: 14px;
+  color: gray;
+}
