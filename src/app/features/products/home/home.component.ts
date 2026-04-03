@@ -13,9 +13,9 @@ import { CategoryService } from '../../../core/services/category/category.servic
   styleUrl: './home.component.scss',
 })
 export class HomeComponent {
-  homeHeader : string = "Popular Products";
+  homeHeader: string = "Popular Products";
   private productService: ProductService = inject(ProductService);
-  private categoryService : CategoryService = inject(CategoryService);
+  private categoryService: CategoryService = inject(CategoryService);
   allProducts = signal<Product[]>([]);
   allCategories = signal<Category[]>([]);
 
@@ -30,11 +30,11 @@ export class HomeComponent {
     })
 
     this.categoryService.getCategory().subscribe({
-      next : (res)=> {
+      next: (res) => {
         this.allCategories.set(res.data);
         // console.log(res.data)
       },
-      error : (err) => {
+      error: (err) => {
         console.log(err)
       }
     })

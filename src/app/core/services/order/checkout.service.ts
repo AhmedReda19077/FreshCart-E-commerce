@@ -9,7 +9,7 @@ import { environment } from '../../../../environments/environment.development';
 export class CheckoutService {
   private httpClient: HttpClient = inject(HttpClient)
 
-  checkoutSession(cartId: string | null , addressValue : object): Observable<any> {
+  checkoutSession(cartId: string | null, addressValue: object): Observable<any> {
     return this.httpClient.post(`${environment.baseUrl}orders/checkout-session/${cartId}?url=${environment.ecommURL}`,
       {
         "shippingAddress": addressValue
