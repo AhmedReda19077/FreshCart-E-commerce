@@ -1,10 +1,8 @@
 {
-  "outputDirectory": "dist/E-commerce",
-  "framework": "angular",
   "rewrites": [
     {
       "source": "/(.*)",
-      "destination": "/server/index"
+      "destination": "/index.html"
     }
   ]
 }

@@ -1,7 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Product } from '../../../core/interfaces/product';
 import { CardComponent } from '../card/card.component';
-import { CurrencyPipe, DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-products-shared',

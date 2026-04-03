@@ -3,15 +3,13 @@ import { Product } from '../../../core/interfaces/product';
 import { RouterLink } from "@angular/router";
 import { CartService } from '../../../core/services/cart/cart.service';
 import { ToastrService } from 'ngx-toastr';
-import { JsonPipe, LowerCasePipe, TitleCasePipe, UpperCasePipe } from '@angular/common';
-import { HiPipe } from '../../../core/pipes/hi.pipe';
 
 
 @Component({
   selector: 'app-card',
-  imports: [RouterLink, TitleCasePipe],
+  imports: [RouterLink],
   templateUrl: './card.component.html',
-  styleUrl: './card.component.scss'
+  styleUrl: './card.component.scss',
 })
 export class CardComponent {
   @Input() oneProduct: Product = {} as Product;
