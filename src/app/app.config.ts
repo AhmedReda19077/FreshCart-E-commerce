@@ -1,5 +1,5 @@
 import { ApplicationConfig, provideBrowserGlobalErrorListeners , inject } from '@angular/core';
-import { provideRouter, withInMemoryScrolling, withViewTransitions } from '@angular/router';
+import { provideRouter, withHashLocation, withInMemoryScrolling, withViewTransitions } from '@angular/router';
 import { provideAnimations } from '@angular/platform-browser/animations'
 import { provideToastr } from 'ngx-toastr';
 
@@ -16,7 +16,7 @@ import { loadingInterceptor } from './core/interceptors/loading/loading.intercep
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
-    provideRouter(routes, withViewTransitions(), withInMemoryScrolling({ scrollPositionRestoration: "enabled" })), provideClientHydration(withEventReplay()),
+    provideRouter(routes, withViewTransitions(), withInMemoryScrolling({ scrollPositionRestoration: "enabled" }),withHashLocation()), provideClientHydration(withEventReplay()) ,
     provideHttpClient(withFetch(), withInterceptors([headerInterceptor, errorInterceptor, loadingInterceptor])),
     provideAnimations(),
     provideToastr(),
